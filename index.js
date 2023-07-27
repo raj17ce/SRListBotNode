@@ -24,7 +24,13 @@ bot.command("list", async (ctx) => {
         ctx.reply("Please forward alerts to get the List.");
     }
     else {
-        let response = await service.getList(ctx.update.message.from.id);
+        let response;
+        try {
+            response = await service.getList(ctx.update.message.from.id);
+        }
+        catch (error) {
+            console.log(error);
+        }
         ctx.reply(response);
     }
 });

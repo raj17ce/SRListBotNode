@@ -108,7 +108,13 @@ async function getList(id) {
 
     let paramString = tickersToParamString(tickers);
 
-    let data = await fetchData(paramString);
+    let data;
+    try {
+        data = await fetchData(paramString);
+    }
+    catch (error) {
+        console.log(error);
+    }
 
     data = data.data;
 
@@ -142,7 +148,7 @@ async function getList(id) {
         response += "Top Gainers:" + "\n\n";
 
         gainers.forEach((entry) => {
-            response += "$" + entry[0] + "\t\t" + parseFloat(entry[1].toFixed(2));
+            response += "$" + entry[0] + "\t\t" + parseFloat(entry[1].toFixed(2)) + "%";
             response += "\n";
         })
     }
@@ -151,7 +157,7 @@ async function getList(id) {
         response += "\n" + "Top Losers:" + "\n\n";
 
         losers.forEach((entry) => {
-            response += "$" + entry[0] + "\t\t" + parseFloat(entry[1].toFixed(2));
+            response += "$" + entry[0] + "\t\t" + parseFloat(entry[1].toFixed(2)) + "%";
             response += "\n";
         })
     }
