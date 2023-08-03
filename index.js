@@ -1,7 +1,7 @@
 const { Telegraf } = require('telegraf');
 const { message } = require('telegraf/filters');
-const config = require('./config.js');
-const service = require('./service.js');
+const config = require('./src/config.js');
+const service = require('./src/service.js');
 
 const bot = new Telegraf(config.BOT_TOKEN);
 
