@@ -118,7 +118,7 @@ async function getList(id) {
 
     data = data.data;
 
-    response += getDay(data[0].regularMarketTime.timestamp) + "\n\n";
+    response += getDay(data[0].regularMarketTime) + "\n\n";
 
     let sortable = data.map((entry) => {
         return [entry.symbol, entry.regularMarketChangePercent];
