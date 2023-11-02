@@ -117,6 +117,7 @@ async function getList(id) {
     }
 
     data = data.data;
+    data = data.body;
 
     response += getDay(data[0].regularMarketTime) + "\n\n";
 
